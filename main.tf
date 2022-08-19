@@ -59,3 +59,10 @@ resource "google_artifact_registry_repository" "docker" {
     google_project_service.default
   ]
 }
+
+resource "google_artifact_registry_repository_iam_member" "artifactregistry_reader_all_users" {
+  repository = google_artifact_registry_repository.docker.name
+  location   = google_artifact_registry_repository.docker.location
+  role       = "roles/artifactregistry.reader"
+  member     = "allUsers"
+}
