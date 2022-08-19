@@ -1,5 +1,5 @@
 FROM golang:alpine
-LABEL org.opencontainers.image.authors="git@bschaatsbergen.com"
+LABEL org.opencontainers.image.authors="docker@binx.io"
 
 ARG TERRAGRUNT_VERSION
 
