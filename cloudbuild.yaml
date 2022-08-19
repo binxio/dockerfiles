@@ -1,6 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', '${_IMAGE}', '.']
+    dir: 'terragrunt'
 
 images: ['${_IMAGE}']
 
