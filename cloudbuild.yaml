@@ -1,9 +1,9 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'latest', '-t', '${_TERRAGRUNT}', '--build-arg', 'TERRAGRUNT_VERSION=v0.38.7', '.']
+    args: ['build', '-t', '${_TERRAGRUNTLATEST}', '-t', '${_TERRAGRUNT}', '--build-arg', 'TERRAGRUNT_VERSION=v0.38.7', '.']
     dir: 'terragrunt'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'latest', '-t', '${_AWSCDK}', '.']
+    args: ['build', '-t', '${_AWSCDKLATEST}', '-t', '${_AWSCDK}', '.']
     dir: 'aws-cdk'
 
 images: ['${_TERRAGRUNT}', '${_AWSCDK}']
@@ -11,3 +11,6 @@ images: ['${_TERRAGRUNT}', '${_AWSCDK}']
 substitutions:
   _TERRAGRUNT: 'europe-west4-docker.pkg.dev/${PROJECT_ID}/docker/terragrunt:${TAG_NAME:-${SHORT_SHA}}'
   _AWSCDK: 'europe-west4-docker.pkg.dev/${PROJECT_ID}/docker/aws-cdk:${TAG_NAME:-${SHORT_SHA}}'
+
+  _TERRAGRUNTLATEST: 'europe-west4-docker.pkg.dev/${PROJECT_ID}/docker/terragrunt:latest'
+  _AWSCDKLATEST: 'europe-west4-docker.pkg.dev/${PROJECT_ID}/docker/aws-cdk:latest'
