@@ -6,7 +6,7 @@ steps:
     args: ['build', '-t', '${_AWSCDKLATEST}', '-t', '${_AWSCDK}', '.']
     dir: 'aws-cdk'
 
-images: ['${_TERRAGRUNT}', '${_AWSCDK}', '${_TERRAGRUNTLATEST}', '${_AWSCDKLATEST}']
+images: ['${_TERRAGRUNT}', '${_TERRAGRUNTLATEST}', '${_AWSCDK}', '${_AWSCDKLATEST}']
 
 substitutions:
   _TERRAGRUNT: 'europe-west4-docker.pkg.dev/${PROJECT_ID}/docker/terragrunt:${TAG_NAME:-${SHORT_SHA}}'
